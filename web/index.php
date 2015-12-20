@@ -11,7 +11,7 @@ define('VOTE_UBUNTU',1);
 define('VOTE_WINDOWS',0);
 
 $app = new Silex\Application();
-$app['debug']=true;
+$app['debug']=false;
 
 $app->register(new Silex\Provider\TwigServiceProvider(), [
     'twig.path' => __DIR__.'/../views',
