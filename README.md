@@ -1,6 +1,11 @@
 # Docker demo voting app
 
+* Pull repository
 * Install [composer](https://getcomposer.org/download/)
+* cd to repository and:
+```bash
+composer.phar install
+```
 * Install [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/)
 * Make sure your ports 80 and 3306 are NOT bound.
 * Run the infrastructure in background (may take a while)
