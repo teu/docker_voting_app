@@ -1,0 +1,36 @@
+{% extends "top.twig" %}
+
+{% block content %}
+
+	<div id="votes">
+		<form action="#" method="post">
+                        <div class="name">Windows</div>
+		<div class="bar_container">
+			<div class="bar" style="background-color:#22b51d;height:{{ votes.ubuntu|round }}%">
+				<div class="percentage">{{ votes.ubuntu }}%</div>
+			</div>
+			<div class="name">
+			{% if votedAlready == 1 %}
+				Ubuntu			
+			{% else %}
+				<input type="submit" name="vote" value="vote Ubuntu" />
+			{% endif %}
+			</div>
+		</div>
+		<div class="bar_container">
+                        <div class="bar" style="background-color:#821db5;height:{{ votes.windows|round }}%">
+                                <div class="percentage">{{ votes.windows }}%</div>
+                        </div>
+			<div class="name">
+                        {% if votedAlready == 1 %}
+                        	Windows                      
+                        {%else%}
+                        	<input type="submit" name="vote" value="vote Windows" />
+                        {%endif%}
+                        </div>
+
+                </div>
+		</form>
+	</div> 	
+
+{% endblock %}

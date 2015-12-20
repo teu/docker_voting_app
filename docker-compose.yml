@@ -1,0 +1,43 @@
+db:
+    container_name: uxpindb
+    build: ./docker/db
+    volumes:
+        - ./build/mysqldata:/var/lib/mysql
+    environment:
+        MYSQL_PASS: "adminPass"
+        ON_CREATE_DB: "app"
+
+web1:
+    container_name: uxpinweb1
+    build: ./docker/web
+    volumes:
+        - .:/var/www/app
+    expose: 
+        - 80
+    links:
+        - db
+
+web2: 
+    container_name: uxpinweb2
+    build: ./docker/web
+    volumes:
+        - .:/var/www/app
+    expose:
+        - 80
+    links:
+        - db
+
+haproxy:
+    container_name: uxpinhaproxy
+    image: tutum/haproxy
+    links:
+        - web1
+        - web2
+    environment:
+       VIRTUAL_HOST: "*"
+    ports:
+       - "80:80"
+       - "70:70"
+    expose:
+       - 80
+       - 70
