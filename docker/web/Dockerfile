@@ -1,5 +1,7 @@
 FROM phusion/baseimage:latest
-#FROM ubuntu:latest
+
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 ENV HOME /root
 
 RUN rm -rf /var/lib/apt/lists/* 
